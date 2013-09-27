@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.nuxeo.ecm.distribution</groupId>
+    <artifactId>nuxeo-distribution</artifactId>
+    <version>5.8-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.nuxeo.marketplace.webengine.sites</groupId>
+  <artifactId>parent</artifactId>
+  <packaging>pom</packaging>
+  <name>Nuxeo WebEngine Sites Marketplace package</name>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <marketplace.webengine.sites.version>1.0-SNAPSHOT</marketplace.webengine.sites.version>
+  </properties>
+
+  <modules>
+    <module>marketplace</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>ftest</id>
+      <modules>
+        <module>ftest/selenium</module>
+      </modules>
+    </profile>
+  </profiles>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.nuxeo.marketplace.webengine.sites</groupId>
+        <artifactId>nxr</artifactId>
+        <version>${marketplace.webengine.sites.version}</version>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.nuxeo.marketplace.webengine.sites</groupId>
+        <artifactId>marketplace-webengine-sites</artifactId>
+        <version>${marketplace.webengine.sites.version}</version>
+        <type>zip</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>public</id>
+      <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>public-snapshot</id>
+      <url>http://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <scm>
+    <connection>scm:git:git://github.com/nuxeo/marketplace-webengine-sites.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:nuxeo/marketplace-webengine-sites.git</developerConnection>
+    <url>https://github.com/nuxeo/marketplace-webengine-sites</url>
+  </scm>
+
+</project>
