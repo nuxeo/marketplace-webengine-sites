@@ -1,10 +1,11 @@
 <!-- See documentation at http://doc.nuxeo.com/x/HgIz -->
-<package type="addon" name="nuxeo-webengine-sites" version="@VERSION@">
-  <title>Nuxeo WebEngine Sites and Blogs</title>
+<package type="addon" name="nuxeo-sites-blogs" version="@VERSION@">
+  <title>Nuxeo Sites and Blogs</title>
   <description>
-    <p>TODO</p>
+    <p>Websites and Blogs are collaborative documents that are web publishing oriented. As so, they have a second interface that makes it easy to display the documents of a workspace to the public.</p>
+    <p>These specific presentations are built using Nuxeo WebEngine.</p>
   </description>
-  <home-page>TODO</home-page>
+  <home-page>http://doc.nuxeo.com/x/P4Ek</home-page>
   <vendor>Nuxeo</vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
@@ -12,7 +13,7 @@
   <!-- <require-terms-and-conditions-acceptance>false</require-terms-and-conditions-acceptance> -->
   <nuxeo-validation>nuxeo_certified</nuxeo-validation>
   <production-state>production_ready</production-state>
-  <supported>true</supported>
+  <supported>false</supported>
   <platforms>
     <platform>cap-@DISTRIB_VERSION@</platform>
   </platforms>
