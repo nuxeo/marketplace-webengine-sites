@@ -10,10 +10,10 @@
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <name>Nuxeo WebEngine Sites Marketplace package</name>
-  <version>1.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <properties>
-    <marketplace.webengine.sites.version>1.0</marketplace.webengine.sites.version>
+    <marketplace.webengine.sites.version>1.0.1-SNAPSHOT</marketplace.webengine.sites.version>
   </properties>
 
   <modules>
