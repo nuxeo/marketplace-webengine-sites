@@ -3,17 +3,17 @@
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>5.9.3-SNAPSHOT</version>
+    <version>5.9.3</version>
   </parent>
 
   <groupId>org.nuxeo.marketplace.webengine.sites</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <name>Nuxeo WebEngine Sites Marketplace package</name>
-  <version>1.1.2-SNAPSHOT</version>
+  <version>1.1.2</version>
 
   <properties>
-    <marketplace.webengine.sites.version>1.1.2-SNAPSHOT</marketplace.webengine.sites.version>
+    <marketplace.webengine.sites.version>1.1.2</marketplace.webengine.sites.version>
   </properties>
 
   <modules>
