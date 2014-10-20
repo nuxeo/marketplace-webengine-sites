@@ -49,7 +49,7 @@
 
     <!-- Base distribution NXR -->
     <copy todir="${outdir}">
-      <artifact:resolveFile key="org.nuxeo.ecm.distribution:nuxeo-distribution-dm::zip" />
+      <artifact:resolveFile key="org.nuxeo.ecm.distribution:nuxeo-distribution-cap::zip" />
     </copy>
 
     <!-- Nuxeo bundles -->
@@ -81,15 +81,15 @@
 
     <!-- Your MP only needs to include files not already provided by the base distribution -->
     <nx:zipdiff file1="${outdir}/nxr-${marketplace.webengine.sites.version}.zip"
-                file2="${outdir}/nuxeo-distribution-dm-${nuxeo.distribution.version}.zip"
+                file2="${outdir}/nuxeo-distribution-cap-${nuxeo.distribution.version}.zip"
                 includesfile="${outdir}/includes"
                 excludesfile="${outdir}/excludesfile"
-                patternsetid="webengine.sites.versus.dm"
+                patternsetid="webengine.sites.versus.cap"
                 ignoreContentPattern=".*jar$">
     </nx:zipdiff>
     <unzip src="${outdir}/nxr-${marketplace.webengine.sites.version}.zip"
            dest="${outdir}/marketplace/install">
-      <patternset refid="webengine.sites.versus.dm" />
+      <patternset refid="webengine.sites.versus.cap" />
     </unzip>
 
     <!-- Generate install.xml file -->
