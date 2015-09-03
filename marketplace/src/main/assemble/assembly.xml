@@ -1,10 +1,6 @@
-<project name="webengine-sites-assembly"
-         default="build"
-         xmlns:nx="urn:nuxeo-build"
-         xmlns:artifact="urn:nuxeo-artifact">
+<project name="webengine-sites-assembly" default="build" xmlns:nx="urn:nuxeo-build" xmlns:artifact="urn:nuxeo-artifact">
   <taskdef resource="org/nuxeo/build/antlib.xml" uri="urn:nuxeo-build" />
-  <taskdef resource="org/nuxeo/build/artifact/antlib.xml"
-           uri="urn:nuxeo-artifact" />
+  <taskdef resource="org/nuxeo/build/artifact/antlib.xml" uri="urn:nuxeo-artifact" />
   <taskdef resource="net/sf/antcontrib/antlib.xml" />
 
   <target name="init" unless="init.done">
@@ -14,21 +10,15 @@
   </target>
 
   <target name="expand">
-    <!-- Include your artifacts in the graph adding your groupId to groupPrefixes -->
     <artifact:nuxeo-expand includeTestScope="true" groupPrefixes="org.nuxeo" />
     <!-- For Nuxeo IDE being able to use that distribution as a SDK -->
-    <artifact:print output="${outdir}/artifacts-webengine-sites.properties"
-                    mode="sdk" />
-    <artifact:print output="${outdir}/test-artifacts-webengine-sites.properties"
-                    mode="sdk"
-                    scopes="test" />
+    <artifact:print output="${outdir}/artifacts-webengine-sites.properties" mode="sdk" />
+    <artifact:print output="${outdir}/test-artifacts-webengine-sites.properties" mode="sdk" scopes="test" />
     <!-- Prints the graph for debugging purpose -->
     <artifact:print output="${outdir}/dependency-tree.log" />
   </target>
 
-  <target name="build"
-          depends="init"
-          description="Build Nuxeo WebEngine Sites Marketplace package">
+  <target name="build" depends="init" description="Build Nuxeo WebEngine Sites Marketplace package">
     <tstamp />
     <delete failonerror="false" dir="${outdir}/nxr" />
     <mkdir dir="${outdir}/nxr" />
@@ -37,15 +27,12 @@
     <copy todir="${outdir}/marketplace">
       <fileset dir="src/main/resources" />
       <filterset>
-        <filter token="VERSION"
-                value="${marketplace.webengine.sites.version}" />
+        <filter token="VERSION" value="${marketplace.webengine.sites.version}" />
         <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
       </filterset>
     </copy>
-    <copy file="${outdir}/artifacts-webengine-sites.properties"
-          todir="${outdir}/marketplace/install" />
-    <copy file="${outdir}/test-artifacts-webengine-sites.properties"
-          todir="${outdir}/marketplace/install" />
+    <copy file="${outdir}/artifacts-webengine-sites.properties" todir="${outdir}/marketplace/install" />
+    <copy file="${outdir}/test-artifacts-webengine-sites.properties" todir="${outdir}/marketplace/install" />
 
     <!-- Base distribution NXR -->
     <copy todir="${outdir}">
@@ -76,8 +63,7 @@
     </move>
     <nx:rmdups dir="${outdir}/nxr/lib" />
     <!-- Temporary ZIP Nuxeo NXR to compare with base distribution NXR -->
-    <zip destfile="${outdir}/nxr-${marketplace.webengine.sites.version}.zip"
-         basedir="${outdir}/nxr" />
+    <zip destfile="${outdir}/nxr-${marketplace.webengine.sites.version}.zip" basedir="${outdir}/nxr" />
 
     <!-- Your MP only needs to include files not already provided by the base distribution -->
     <nx:zipdiff file1="${outdir}/nxr-${marketplace.webengine.sites.version}.zip"
@@ -87,8 +73,7 @@
                 patternsetid="webengine.sites.versus.cap"
                 ignoreContentPattern=".*jar$">
     </nx:zipdiff>
-    <unzip src="${outdir}/nxr-${marketplace.webengine.sites.version}.zip"
-           dest="${outdir}/marketplace/install">
+    <unzip src="${outdir}/nxr-${marketplace.webengine.sites.version}.zip" dest="${outdir}/marketplace/install">
       <patternset refid="webengine.sites.versus.cap" />
     </unzip>
 
@@ -123,9 +108,7 @@
 
     <var name="install.templates" value="" />
 
-    <copy file="src/main/resources/install.xml"
-          todir="${outdir}/marketplace"
-          overwrite="true">
+    <copy file="src/main/resources/install.xml" todir="${outdir}/marketplace" overwrite="true">
       <filterset>
         <filter token="BUNDLES" value="${install.bundles}" />
         <filter token="LIBS" value="${install.libs}" />
