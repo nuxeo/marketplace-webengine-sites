@@ -13,6 +13,22 @@
   <description>Nuxeo WebEngine Sites functional tests with Selenium</description>
   <packaging>pom</packaging>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.nuxeo.marketplace.webengine.sites</groupId>
+      <artifactId>marketplace-webengine-sites</artifactId>
+      <type>zip</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.nuxeo.ecm.distribution</groupId>
+      <artifactId>nuxeo-distribution-tomcat</artifactId>
+      <classifier>nuxeo-cap</classifier>
+      <type>zip</type>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
